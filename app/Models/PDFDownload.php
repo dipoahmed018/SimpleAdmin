@@ -10,4 +10,6 @@ class PDFDownload extends Model
     use HasFactory;
 
     protected $table = 'pdf_download';
+
+    protected $fillable = ['title', 'file'];
 }

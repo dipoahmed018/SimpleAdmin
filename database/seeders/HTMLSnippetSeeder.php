@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\HTMLSnippet;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +15,6 @@ class HTMLSnippetSeeder extends Seeder
      */
     public function run()
     {
-        //
+        HTMLSnippet::factory(20)->create();
     }
 }

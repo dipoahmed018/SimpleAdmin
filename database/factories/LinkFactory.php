@@ -17,7 +17,9 @@ class LinkFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'title' => $this->faker->paragraph(1),
+            'link' => $this->faker->imageUrl(),
+            'target' => $this->faker->randomElement(['_blank', '_self']),
         ];
     }
 }

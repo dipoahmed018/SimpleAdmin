@@ -10,4 +10,6 @@ class HTMLSnippet extends Model
     use HasFactory;
 
     protected $table = 'html_snippet';
+
+    protected $fillable = ['title', 'description', 'snippet'];
 }

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 255);
             $table->string('link', 2048);
+            $table->enum('target', ['_blank', '_self']);
             $table->timestamps();
         });
     }
