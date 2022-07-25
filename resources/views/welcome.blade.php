@@ -10,5 +10,7 @@
     </head>
     <body class="antialiased">
        <div id="app"></div>
+
+       @vite('resources/js/index.js')
     </body>
 </html>

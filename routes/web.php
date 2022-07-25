@@ -13,6 +13,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Redirect every request of web to vue js
+Route::view('/{path?}', 'welcome');

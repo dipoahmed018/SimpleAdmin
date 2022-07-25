@@ -1,6 +1,7 @@
 <template>
-    <h1>hello world</h1>
+  <slot></slot>
 </template>
 
 <script setup>
+
 </script>
