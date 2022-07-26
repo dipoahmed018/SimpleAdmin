@@ -4,7 +4,11 @@ import HomeRoutes from "./routes/Home.js"
 
 const routes = [
     ...AdminRoutes,
-    ...HomeRoutes
+    ...HomeRoutes,
+    {
+        path: "/:pathMatch(.*)*",
+        redirect: "/"
+    }
 ]
 const router = createRouter({
     history: createWebHistory(),

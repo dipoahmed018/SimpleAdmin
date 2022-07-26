@@ -1,3 +1,7 @@
 .label {
     @apply text-title-3 text-tints-3 mb-1 block;
 }
+
+.code-editor .codeflask {
+    @apply min-h-[200px] relative rounded-md
+}

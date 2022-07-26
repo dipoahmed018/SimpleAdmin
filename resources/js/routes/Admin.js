@@ -29,7 +29,7 @@ const routes = [
         component: HTMLSnippetCreate
     },
     {
-        path: '/admin/html-snippet/edit',
+        path: '/admin/html-snippet/edit/:snippet_id',
         component: HTMLSnippetEdit
     },
     {
@@ -41,7 +41,7 @@ const routes = [
         component: PDFDownloadCreate
     },
     {
-        path: '/admin/pdf-download/edit',
+        path: '/admin/pdf-download/edit/:pdf_id',
         component: PDFDownloadEdit
     },
     {
@@ -53,7 +53,7 @@ const routes = [
         component: LinkCreate
     },
     {
-        path: '/admin/link/edit',
+        path: '/admin/link/edit/:link_id',
         component: LinkEdit
     }
   ]  

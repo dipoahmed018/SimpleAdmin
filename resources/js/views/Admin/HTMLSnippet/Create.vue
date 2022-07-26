@@ -16,7 +16,7 @@
 
         <div class="flex flex-col p-3">
             <label for="snippet" class="label">Snippet:</label>
-            <SnippetCard :code="form.snippet" />                
+            <CodeEditor v-model="form.snippet" />                
         </div>
         
         <div class="flex mt-auto p-3 justify-end">
@@ -31,12 +31,12 @@ import TextInput from '../../../components/Inputs/Text.vue';
 import { reactive } from 'vue';
 import TextArea from '../../../components/Inputs/TextArea.vue';
 import Button from '../../../components/Buttons/Button.vue';
-import SnippetCard from '../../../components/SnippetCard.vue';
+import CodeEditor from '../../../components/Inputs/CodeEditor.vue';
 
 const form = reactive({
     title: "",
-    description: "Hello world",
-    snippet: "<h1> Hello world </h1>",
+    description: "",
+    snippet: "",
 })
 
 </script>
