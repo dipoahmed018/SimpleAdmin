@@ -17,16 +17,14 @@ const LinkEdit = () => import("../views/Admin/Link/Edit.vue")
 
 const routes = [
     {
-        path: '/admin',
-        component: HTMLSnippet
-    },
-    {
         path: '/admin/html-snippet',
-        component: HTMLSnippet
+        component: HTMLSnippet,
+        label: 'HTML Snippet',
+        appendToSidebar: true,
     },
     {
         path: '/admin/html-snippet/create',
-        component: HTMLSnippetCreate
+        component: HTMLSnippetCreate,
     },
     {
         path: '/admin/html-snippet/edit/:snippet_id',
@@ -34,7 +32,9 @@ const routes = [
     },
     {
         path: '/admin/pdf-download',
-        component: PDFDownload
+        component: PDFDownload,
+        label: 'PDF Download',
+        appendToSidebar: true,
     },
     {
         path: '/admin/pdf-download/create',
@@ -46,7 +46,9 @@ const routes = [
     },
     {
         path: '/admin/link',
-        component: Link
+        component: Link,
+        label: 'Link',
+        appendToSidebar: true,
     },
     {
         path: '/admin/link/create',
@@ -55,6 +57,10 @@ const routes = [
     {
         path: '/admin/link/edit/:link_id',
         component: LinkEdit
+    },
+    {
+        path: "/admin/:pathMatch(.*)*",
+        redirect: '/admin/html-snippet'
     }
   ]  
 
