@@ -14,4 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Redirect every request of web to vue js
-Route::view('/{path?}', 'welcome');
+Route::fallback(fn() => view('welcome'));
