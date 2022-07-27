@@ -17,6 +17,7 @@ import Links from './store/Links.vue';
 import PDFDownload from './store/PDFDownload.vue';
 import 'vue-toast-notification/dist/theme-sugar.css';
 import './assets/css/index.css'
+import '../css/app.css'
 
 
 </script>

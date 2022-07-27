@@ -6,7 +6,6 @@
 
         <title>Simple Admin</title>
 
-        @vite('resources/css/app.css')
     </head>
     <body class="antialiased">
        <div id="app"></div>
