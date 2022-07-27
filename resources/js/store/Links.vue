@@ -38,9 +38,9 @@ import { useRouter } from 'vue-router';
         }
     }
 
-    const createLink = async (data) => {
+    const createLink = async (form) => {
         try {
-            const res = await axios.post('/api/links', data)
+            const res = await axios.post('/api/links', form)
             toast.success('Link Created Successfully!', {position: 'bottom-left'})
             data.value.push(res.data)
             router.push('/admin/link')

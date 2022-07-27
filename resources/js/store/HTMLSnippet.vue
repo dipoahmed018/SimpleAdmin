@@ -37,9 +37,9 @@ import { useRouter } from 'vue-router';
         }
     }
 
-    const createHtmlSnippet = async (data) => {
+    const createHtmlSnippet = async (form) => {
         try {
-            const res = await axios.post('/api/html-snippet', data)
+            const res = await axios.post('/api/html-snippet', form)
             toast.success('Snippet Created Successfully!', {position: 'bottom-left'})
             data.value.push(res.data)
             router.push('/admin/html-snippet')
@@ -49,9 +49,9 @@ import { useRouter } from 'vue-router';
         }
     }
 
-    const updateHtmlSnippet = async (data, id) => {
+    const updateHtmlSnippet = async (form, id) => {
          try {
-            const res = await axios.put(`/api/html-snippet/${id}`,data)
+            const res = await axios.put(`/api/html-snippet/${id}`,form)
             toast.success('Snippet Updated Successfully!', {position: 'bottom-left'})
             return res.data
         } catch (error) {
