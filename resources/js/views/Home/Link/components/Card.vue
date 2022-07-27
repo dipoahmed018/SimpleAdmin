@@ -3,7 +3,7 @@
         <div class="link-wrapper flex gap-1">
             <span class="text-rose text-4">Link:</span>
             <span>
-                <a :href="link.url" class="text-dark-A400 title text-title-4 my-2 cursor-pointer underline underline-offset-4" :target="link.target">{{link.title}}</a>
+                <a :href="'//' + link.url" class="text-dark-A400 title text-title-4 my-2 cursor-pointer underline underline-offset-4" :target="link.target">{{link.title}}</a>
             </span>
         </div>
     </div>
