@@ -18,7 +18,7 @@ class LinkFactory extends Factory
     {
         return [
             'title' => $this->faker->paragraph(1),
-            'link' => $this->faker->imageUrl(),
+            'url' => $this->faker->imageUrl(),
             'target' => $this->faker->randomElement(['_blank', '_self']),
         ];
     }

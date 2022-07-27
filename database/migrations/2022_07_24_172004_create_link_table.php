@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('link', function (Blueprint $table) {
             $table->id();
             $table->string('title', 255);
-            $table->string('link', 2048);
+            $table->string('url', 2048);
             $table->enum('target', ['_blank', '_self']);
             $table->timestamps();
         });

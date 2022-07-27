@@ -9,6 +9,9 @@
             <Button class="bg-tints-2 text-dark w-[50%] py-1 flex justify-center items-center gap-2" @click="(e) => copySnippet(e, snippet.snippet)">
                 Copy Snippet <SuccessIcon width="16px" height="16px" v-if="copied" />
             </Button>
+             <Button class="bg-dark-A200 text-dark w-[50%] py-1 flex justify-center items-center gap-2" @click="this.$emit('delete-snippet',snippet.id)">
+                Delete
+            </Button>
             <ButtonLink :href="`/admin/html-snippet/edit/${snippet.id}`" class="bg-dark-A400 w-[50%]">
                 Edit
             </ButtonLink>

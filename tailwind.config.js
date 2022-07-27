@@ -24,6 +24,7 @@ module.exports = {
         'tints-1': '#E4E0E0',
         'dark': "#464242",
         'dark-A400': "#B56156",
+        'dark-A200': '#DB676C',
         'rose': '#F28A95'
       }
     },

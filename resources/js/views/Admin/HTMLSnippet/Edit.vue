@@ -1,7 +1,7 @@
 <template>
     <div class="card w-full">
         <div class="meta-and-actions h-16 w-full mt-5 bg-white flex items-center px-7 justify-between">
-            <h2 class="text-title-3 text-dark">Admin / Link</h2>
+            <h2 class="text-title-3 text-dark">Admin / Html Snippet / Edit</h2>
         </div>
     <div class="form flex flex-col min-h-[400px]">
             <div class="flex flex-col p-3">
@@ -20,7 +20,7 @@
         </div>
 
         <div class="flex mt-auto p-3 justify-end">
-            <Button class="min-w-[200px] bg-tints-3 text-white drop-shadow-lg">Save</Button>
+            <Button class="min-w-[200px] bg-tints-3 text-white drop-shadow-lg" @click="updateHtmlSnippet(form, snippet.id)">Save</Button>
         </div>
     </div>
     </div>
@@ -39,7 +39,7 @@ const form = reactive({
     snippet: snippet.value?.snippet ||"",
 })
 
-const {getHtmlSnippet} = inject('html-snippet')
+const {getHtmlSnippet, updateHtmlSnippet} = inject('html-snippet')
 
 onMounted(() => {
     const id = location.pathname.match(/\d+$/)

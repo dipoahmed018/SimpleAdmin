@@ -55,4 +55,16 @@ class HtmlSnippetController extends Controller
         $html_snippet->update($request->validated());
         return response()->json([$html_snippet->fresh()], 200);
     }
+
+      /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Link  $link
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(HTMLSnippet $html_snippet)
+    {
+        $html_snippet->delete();
+        return response()->json(['status' => 'success'], 204);
+    }
 }

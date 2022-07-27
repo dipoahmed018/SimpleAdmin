@@ -11,5 +11,5 @@ class Link extends Model
 
     protected $table = 'link';
 
-    protected $fillable = ['title', 'link', 'target'];
+    protected $fillable = ['title', 'url', 'target'];
 }

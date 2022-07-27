@@ -6,22 +6,24 @@
         </div>
 
         <div class="flex p-3">
-            <div class="snippet-card flex flex-col bg-shade-3 rounded-lg w-full min-h-[100px] p-2 gap-2">
-                <h1 class="title text-title-4 text-white my-2">sdf</h1>
-                <div class="link bg-white p-2 rounded-md flex gap-2">
-                    <span class="text-rose">Link:</span>
-                    <span>
-                        <a href="https://www.figma.com/file/6BalQOuRZDYWd3cT4zYGNY/Untitled?node-id=3%3A436" class="text-dark-A400">https://www.figma.com/file/6BalQOuRZDYWd3cT4zYGNY/Untitled?node-id=3%3A436</a>
-                    </span>
-                </div>
+            <div class="flex flex-col bg-shade-3 rounded-lg w-full p-2 gap-2">
+                <Card v-for="link in data" :link="link" :key="link.id" @delete="(id) => deleteLink(id)"/>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import Button from '../../../components/Buttons/Button.vue';
+import { onMounted, inject } from 'vue';
 import ButtonLink from '../../../components/Buttons/ButtonLink.vue';
-import SnippetCard from '../../../components/SnippetCard.vue';
+import Card from './components/Card.vue';
 
+const {data, loadLinks, error, deleteLink} = inject('links')
+
+
+onMounted(() => {
+    if(!error.value) {
+        loadLinks()
+    }
+})
 </script>

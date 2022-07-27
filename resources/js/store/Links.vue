@@ -8,12 +8,12 @@ import { provide, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
     const data = ref([])
-    const url = ref('/api/html-snippet')
+    const url = ref('/api/links')
     const error = ref(undefined)
     const toast = useToast()
     const router = useRouter()
 
-    const loadHtmlSnipptes = () => {
+    const loadLinks = () => {
         if(url.value) {
             axios.get(url.value, {headers: {
                 'accept': 'application/json'
@@ -21,14 +21,15 @@ import { useRouter } from 'vue-router';
             .then(res => {
                 data.value.push(...res.data.data)
                 url.value = res.data.next_page_url
+                loaded.value = true
             })
             .catch(err => error.value = err)
         }
     }
 
-    const getHtmlSnippet = async (id) => {
+    const getLink = async (id) => {
         try {
-            const res = await axios.get(`/api/html-snippet/${id}`, {headers: {
+            const res = await axios.get(`/api/links/${id}`, {headers: {
                 'accept': 'application/json'
             }})
             return res.data
@@ -37,38 +38,38 @@ import { useRouter } from 'vue-router';
         }
     }
 
-    const createHtmlSnippet = async (data) => {
+    const createLink = async (data) => {
         try {
-            const res = await axios.post('/api/html-snippet', data)
-            toast.success('Snippet Created Successfully!', {position: 'bottom-left'})
-            router.push('/admin/html-snippet')
+            const res = await axios.post('/api/links', data)
+            toast.success('Link Created Successfully!', {position: 'bottom-left'})
+            router.push('/admin/link')
             return res.data
         } catch (error) {
             throw error
         }
     }
 
-    const updateHtmlSnippet = async (data, id) => {
+    const updateLink = async (data, id) => {
          try {
-            const res = await axios.put(`/api/html-snippet/${id}`,data)
-            toast.success('Snippet Updated Successfully!', {position: 'bottom-left'})
+            const res = await axios.put(`/api/links/${id}`, data)
+            toast.success('Link Updated Successfully!', {position: 'bottom-left'})
             return res.data
         } catch (error) {
             throw error
         }
     }
 
-      const deleteHtmlSnippet = async (id) => {
+    const deleteLink = async (id) => {
          try {
-            const res = await axios.delete(`/api/html-snippet/${id}`)
+            const res = await axios.delete(`/api/links/${id}`)
             data.value = data.value.filter((item) => item.id != id )
-            toast.warning('Snippet Deleted Successfully!', {position: 'bottom-left'})
+            toast.warning('Link Deleted Successfully!', {position: 'bottom-left'})
             return res.data
         } catch (error) {
             throw error
         }
     }
 
-    provide('html-snippet', {data: data, error: error, getHtmlSnippet, loadHtmlSnipptes, createHtmlSnippet, updateHtmlSnippet, deleteHtmlSnippet})
+    provide('links', {data: data, error: error, getLink, loadLinks, createLink, updateLink, deleteLink})
 
 </script>
