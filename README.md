@@ -21,6 +21,7 @@ Open A terminan to the project directory And run
 1. composer install
 2. npm install
 3. php artisan generate:key
+4. php artisan storage:link
 
 Now Replace the value of these fields below accorading to you mysql server configuration 
 Note! Make Sure to create a new database and name it SimpleAdmin if you want or you have to change it at "DB_DATABASE" field,
