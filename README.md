@@ -20,7 +20,7 @@ Open A terminal to the project root directory And run
 
 1. composer install
 2. npm install
-3. php artisan generate:key
+3. php artisan key:generate
 4. php artisan storage:link
 
 Now Replace the value of these fields below accorading to you mysql server configuration 
