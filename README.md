@@ -40,6 +40,6 @@ Now run
 
 This should provide you with a host like this 127.0.0.1:8000, If for some reasone it's differant make sure to replace your .env configuration valriable "APP_URL" with the provided host and port
 
-Now You can look arount this site without any problem.
+Now You can look around this site without any problem.
 
 # Have a great day!
