@@ -13,8 +13,8 @@ PHP8, Node JS, MYSQL,
 
 ## Installation
 
-First create a .env file at the project root directory and copy all text from .env.example file,
-Here You can edit your server configuration example. your MYSQL server credentials.
+### First create a .env file at the project root directory and copy all text from .env.example file,
+### Here You can edit your server configuration example. your MYSQL server credentials.
 
 Open A terminal to the project root directory And run
 
