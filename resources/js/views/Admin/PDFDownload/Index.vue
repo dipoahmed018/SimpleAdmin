@@ -18,7 +18,7 @@
                         </ButtonLink>
                     </div>
                 </div>
-                <a :href="pdf.file_url" download class="bg-black text-rose w-2/12 rounded-none flex flex-row items-center justify-center">
+                <a :href="'//' + pdf.file_url" download class="bg-black text-rose w-2/12 rounded-none flex flex-row items-center justify-center">
                     Download
                     <PdfDownloadIcon />
                 </a>

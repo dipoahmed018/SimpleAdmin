@@ -7,7 +7,7 @@
         <div class="flex p-3 flex-col gap-2">
             <div class="min-h-[80px] w-full bg-shade-3 flex pl-3 rounded-md" v-for="pdf in data" :key="pdf.id">
                 <h3 class="text-white text-title-4 w-10/12 flex items-center">{{pdf.title}}</h3>
-                <a :href="pdf.file_url" download="hello" class="bg-black text-rose w-2/12 rounded-none flex flex-row items-center justify-center">
+                <a :href="'//' + pdf.file_url" download="" class="bg-black text-rose w-2/12 rounded-none flex flex-row items-center justify-center">
                     Download
                     <PdfDownloadIcon />
                 </a>
