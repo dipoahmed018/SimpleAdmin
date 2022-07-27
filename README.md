@@ -34,8 +34,9 @@ DB_PASSWORD=root
 
 Now run
 
-1. php artisan migrate:fresh --seed
-2. php artisan serve;
+1. php artisan migrate:fresh --seed Note:"This will show you a propmt. just type yes and it will create the tables and some dummy data in your databse."
+2. npm run build
+3. php artisan serve;
 
 This should provide you with a host like this 127.0.0.1:8000, If for some reasone it's differant make sure to replace your .env configuration valriable "APP_URL" with the provided host and port
 
