@@ -6,7 +6,7 @@
     <div class="form flex flex-col min-h-[400px]">
             <div class="flex flex-col p-3">
                 <label for="title" class="label">Title:</label>
-            <TextInput name="title" id="title" v-model="form.title" placeholder="Enter Your Title Here" maxLength="200" required/>
+            <TextInput name="title" id="title" v-model:value="form.title" @update:value="title => form.title = title" placeholder="Enter Your Title Here" maxLength="200" required/>
         </div>
 
         <div class="flex flex-col p-3 relative">
@@ -18,9 +18,9 @@
             </label>
             <input class="w-0 h-0 absolute" type="file" name="file" id="pdf" accept=".pdf" @change="(e) => form.file = e.target.files[0]" required>
         </div>
-        
+
         <div class="flex mt-auto p-3 justify-end">
-            <Button class="min-w-[200px]">Create</Button>
+            <Button class="min-w-[200px] bg-tints-3 text-white drop-shadow-lg" @click="createPDF(form)">Create</Button>
         </div>
     </div>
     </div>
@@ -28,8 +28,7 @@
 
 <script setup>
 import TextInput from '../../../components/Inputs/Text.vue';
-import { reactive } from 'vue';
-import TextArea from '../../../components/Inputs/TextArea.vue';
+import { reactive,  inject } from 'vue';
 import Button from '../../../components/Buttons/Button.vue';
 import PdfDownloadIcon from '../../../components/Icons/PdfDownload.vue';
 
@@ -37,6 +36,8 @@ const form = reactive({
     title: "",
     file: null,
 })
+
+const { createPDF }  = inject('pdf-download')
 
 
 </script>

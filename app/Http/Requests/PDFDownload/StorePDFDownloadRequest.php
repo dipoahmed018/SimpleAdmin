@@ -24,7 +24,7 @@ class StorePDFDownloadRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => "required|max:200|min:2",
+            'title' => "required|string|max:200|min:2",
             'file' => "required|mimes:pdf",
         ];
     }

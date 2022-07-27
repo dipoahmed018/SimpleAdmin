@@ -9,7 +9,7 @@ import { useRouter } from 'vue-router';
 
     const data = ref([])
     const url = ref('/api/pdf-download')
-    const error = ref(undefined)
+    const error = ref()
     const toast = useToast()
     const router = useRouter()
 
@@ -21,7 +21,6 @@ import { useRouter } from 'vue-router';
             .then(res => {
                 data.value.push(...res.data.data)
                 url.value = res.data.next_page_url
-                loaded.value = true
             })
             .catch(err => error.value = err)
         }
@@ -38,10 +37,15 @@ import { useRouter } from 'vue-router';
         }
     }
 
-    const createPDF = async (data) => {
+    const createPDF = async (form) => {
         try {
-            const res = await axios.post('/api/pdf-download', data)
+            const form_data = new FormData()
+            form_data.append('title', form.title)
+            form_data.append('file', form.file)
+
+            const res = await axios.post('/api/pdf-download', form_data)
             toast.success('PDF Created Successfully!', {position: 'bottom-left'})
+            data.value.push(res.data)
             router.push('/admin/pdf-download')
             return res.data
         } catch (error) {
@@ -51,7 +55,17 @@ import { useRouter } from 'vue-router';
 
     const updatePDF = async (data, id) => {
          try {
-            const res = await axios.put(`/api/pdf-download/${id}`, data)
+             let form_data = new FormData()
+             if(data.file) {
+                form_data.append('title', data.title)
+                form_data.append('file', data.file)
+                form_data.append('_method', 'PUT')
+            } else {
+                data._method = 'PUT'
+                form_data = data
+            }
+
+            const res = await axios.post(`/api/pdf-download/${id}`, form_data)
             toast.success('PDF Updated Successfully!', {position: 'bottom-left'})
             return res.data
         } catch (error) {

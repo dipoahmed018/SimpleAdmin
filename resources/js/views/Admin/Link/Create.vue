@@ -50,6 +50,6 @@ const link_target = computed({
     }
 })
 
-const {getLink, createLink}  = inject('links')
+const {createLink}  = inject('links')
 
 </script>

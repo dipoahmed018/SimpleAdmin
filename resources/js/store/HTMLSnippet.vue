@@ -41,6 +41,7 @@ import { useRouter } from 'vue-router';
         try {
             const res = await axios.post('/api/html-snippet', data)
             toast.success('Snippet Created Successfully!', {position: 'bottom-left'})
+            data.value.push(res.data)
             router.push('/admin/html-snippet')
             return res.data
         } catch (error) {

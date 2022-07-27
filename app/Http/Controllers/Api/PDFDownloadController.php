@@ -17,7 +17,7 @@ class PDFDownloadController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(PDFDownload::simplePaginate(), 200);
     }
 
     /**
@@ -29,8 +29,9 @@ class PDFDownloadController extends Controller
     public function store(StorePDFDownloadRequest $request)
     {
         $path = $request->file('file')->store('pdf', 'public');
+        $input = $request->only(['title']) + ['file' => $path];
 
-        $pdf = PDFDownload::create($request->only(['title'] + ['file' => $path]));
+        $pdf = PDFDownload::create($input);
         return response()->json($pdf, 200);
     }
 
@@ -54,9 +55,13 @@ class PDFDownloadController extends Controller
      */
     public function update(UpdatePDFDownloadRequest $request, PDFDownload $pdf_download)
     {
-        Storage::disk('public')->delete($pdf_download->file);
-        $path = $request->file('file')->store('pdf', 'public');
-        $pdf_download->update($request->only(['title']) + ['file' => $path]);
+        $input = $request->only('title');
+        if($request->hasFile('file')) {
+            Storage::disk('public')->delete($pdf_download->file);
+            $path = Storage::disk('public')->putFile('pdf', $request->file('file'));
+            $input = $input + ['file' => $path];
+        }
+        $pdf_download->update($input);
     }
 
     /**
@@ -68,6 +73,7 @@ class PDFDownloadController extends Controller
     public function destroy(PDFDownload $pdf_download)
     {
         Storage::disk('public')->delete($pdf_download->file);
+        // dd($pdf_download->file);
         $pdf_download->delete();
     }
 }

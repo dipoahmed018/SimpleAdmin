@@ -24,8 +24,8 @@ class UpdatePDFDownloadRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => "required|max:200|min:2",
-            'file' => "required|mimes:pdf",
+            'title' => "required|max:200|min:2|string",
+            'file' => "nullable|mimes:pdf",
         ];
     }
 }
