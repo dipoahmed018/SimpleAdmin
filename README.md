@@ -9,12 +9,12 @@ A siple admin dashboard without any login panel or authentication.
 
 ## Requirements
 
--PHP8, Node JS, MYSQL, 
+PHP8, Node JS, MYSQL, 
 
 ## Installation
 
-First create a .env file at the project root directory and copy all from .env.example file
-Here You can edit your server information example. your MYSQL server credentials.
+First create a .env file at the project root directory and copy all text from .env.example file,
+Here You can edit your server configuration example. your MYSQL server credentials.
 
 Open A terminan to the project directory And run
 
