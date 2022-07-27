@@ -5,20 +5,25 @@
 </template>
 
 <script setup>
-import { onMounted, useAttrs } from "vue";
+import { onMounted, onUpdated, useAttrs } from "vue";
 import CodeFlask from "codeflask"
 import { ref } from "@vue/reactivity";
 
     const edit_box = ref(null);
-    
+
     const attrs = useAttrs()
-    const emit = defineEmits(['update:modelValue'])
+    const emit = defineEmits(['update:value'])
+    let editor;
 
     onMounted(() => {
-        let editor = new CodeFlask(edit_box.value, {language: 'html'})
-        editor.updateCode(attrs.modelValue)
+        editor = new CodeFlask(edit_box.value, {language: 'html'})
         editor.onUpdate((code) => {
-            emit('update:modelValue', code)
+            emit('update:value', code)
         })
+
+    })
+
+    onUpdated(() => {
+        editor.updateCode(attrs.value)
     })
 </script>
