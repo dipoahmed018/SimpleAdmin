@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Api\HtmlSnippetController;
 use App\Http\Controllers\Api\LinkController;
+use App\Http\Controllers\Api\PDFDownloadController;
+use App\Models\PDFDownload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +20,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::apiResource('html-snippet', HtmlSnippetController::class);
 Route::apiResource('links', LinkController::class);
+Route::apiResource('pdf-download', PDFDownloadController::class);

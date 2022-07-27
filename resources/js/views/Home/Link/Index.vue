@@ -6,7 +6,7 @@
 
         <div class="flex p-3">
             <div class="flex flex-col bg-shade-3 rounded-lg w-full p-2 gap-2">
-                <Card v-for="link in data" :link="link" :key="link.id" @delete="(id) => deleteLink(id)"/>
+                <Card v-for="link in data" :link="link" :key="link.id"/>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@ import { onMounted, inject } from 'vue';
 import ButtonLink from '../../../components/Buttons/ButtonLink.vue';
 import Card from './components/Card.vue';
 
-const {data, loadLinks, error, deleteLink} = inject('links')
+const {data, loadLinks, error} = inject('links')
 
 
 onMounted(() => {
